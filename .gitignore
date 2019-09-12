@@ -1,2 +1,6 @@
 vendor
 composer.lock
+src
+tests
+composer.json
+LICENSE.md
