@@ -23,37 +23,17 @@ class FilePacker
     public static function move()
     {
         // if(rename(realpath(dirname(__FILE__)) . FilePacker::themeCreatePath, realpath(dirname(__FILE__)) . "\ThemeCreateCommand.php")) {
-        if(rename(realpath(dirname(__FILE__)) . FilePacker::themeCreatePath, "..\..\ThemeCreateCommand.php")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
+        rename(realpath(dirname(__FILE__)) . FilePacker::themeCreatePath, "..\..\ThemeCreateCommand.php");
 
-        if(rename(realpath(dirname(__FILE__)) . FilePacker::themePackagePath, "..\..\ThemePackageCommand.php")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
+        rename(realpath(dirname(__FILE__)) . FilePacker::themePackagePath, "..\..\ThemePackageCommand.php");
 
-        if(rename(realpath(dirname(__FILE__)) . FilePacker::themeSyncPath, "..\..\ThemeSyncCommand.php")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
+        rename(realpath(dirname(__FILE__)) . FilePacker::themeSyncPath, "..\..\ThemeSyncCommand.php");
 
-        if(rename(realpath(dirname(__FILE__)) . FilePacker::themeValidatePath, "..\..\ThemeValidateCommand.php")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
+        rename(realpath(dirname(__FILE__)) . FilePacker::themeValidatePath, "..\..\ThemeValidateCommand.php");
 
-        if(rename(realpath(dirname(__FILE__)) . FilePacker::schemasPath, "..\..\schemas")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
+        rename(realpath(dirname(__FILE__)) . FilePacker::schemasPath, "..\..\schemas");
         
     }
 }
 
-FilePacker::move();
+// FilePacker::move();

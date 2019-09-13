@@ -23,13 +23,20 @@
         }
     },
     "require-dev": {
-		"phpunit/phpunit": "6.*",
+        "phpunit/phpunit": "6.*",
         "orchestra/testbench": "~3.0"
     },
     "autoload": {
         "psr-4": {
             "mysteryreloaded\\laraonetheme\\": "src/"
         },
-        "files": ["src/FilePacker.php"]
+        "files": [
+            "src/FilePacker.php"
+        ]
+    },
+    "scripts": {
+        "post-package-install": [
+            "mysteryreloaded\\laraonetheme\\FilePacker::move"
+        ]
     }
 }
