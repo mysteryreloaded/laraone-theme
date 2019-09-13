@@ -29,6 +29,7 @@
     "autoload": {
         "psr-4": {
             "mysteryreloaded\\laraonetheme\\": "src/"
-        }
+        },
+        "files": ["src/FilePacker.php"]
     }
 }

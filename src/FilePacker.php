@@ -4,43 +4,15 @@ namespace mysteryreloaded\laraonetheme;
 
 class FilePacker
 {
-    const themeCreatePath = "./ThemeCreateCommand.php";
-    const themePackagePath = "./ThemePackageCommand.php";
-    const themeSyncPath = "./ThemeSyncCommand.php";
-    const themeValidatePath = "./ThemeValidateCommand.php";
-    const schemasPath = "./schemas";
+    const themeCreatePath = "\ThemeCreateCommand.php";
+    const themePackagePath = "\ThemePackageCommand.php";
+    const themeSyncPath = "\ThemeSyncCommand.php";
+    const themeValidatePath = "\ThemeValidateCommand.php";
+    const schemasPath = "\schemas";
 
     public function __construct()
     {
-        if(rename(FilePacker::themeCreatePath, "..../ThemeCreateCommand.php")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
 
-        if(rename(FilePacker::themePackagePath, "..../ThemePackageCommand.php")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
-
-        if(rename(FilePacker::themeSyncPath, "..../ThemeSyncCommand.php")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
-
-        if(rename(FilePacker::themeValidatePath, "..../ThemeValidateCommand.php")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
-
-        if(rename(FilePacker::schemasPath, "..../schemas")) {
-            echo "MOVE SUCCESS!";
-        } else {
-            echo "MOVE FAILED!";
-        }
     }
 
     public static function world()
@@ -50,31 +22,32 @@ class FilePacker
 
     public static function move()
     {
-        if(rename(FilePacker::themeCreatePath, "..../ThemeCreateCommand.php")) {
+        // if(rename(realpath(dirname(__FILE__)) . FilePacker::themeCreatePath, realpath(dirname(__FILE__)) . "\ThemeCreateCommand.php")) {
+        if(rename(realpath(dirname(__FILE__)) . FilePacker::themeCreatePath, "..\..\ThemeCreateCommand.php")) {
             echo "MOVE SUCCESS!";
         } else {
             echo "MOVE FAILED!";
         }
 
-        if(rename(FilePacker::themePackagePath, "..../ThemePackageCommand.php")) {
+        if(rename(realpath(dirname(__FILE__)) . FilePacker::themePackagePath, "..\..\ThemePackageCommand.php")) {
             echo "MOVE SUCCESS!";
         } else {
             echo "MOVE FAILED!";
         }
 
-        if(rename(FilePacker::themeSyncPath, "..../ThemeSyncCommand.php")) {
+        if(rename(realpath(dirname(__FILE__)) . FilePacker::themeSyncPath, "..\..\ThemeSyncCommand.php")) {
             echo "MOVE SUCCESS!";
         } else {
             echo "MOVE FAILED!";
         }
 
-        if(rename(FilePacker::themeValidatePath, "..../ThemeValidateCommand.php")) {
+        if(rename(realpath(dirname(__FILE__)) . FilePacker::themeValidatePath, "..\..\ThemeValidateCommand.php")) {
             echo "MOVE SUCCESS!";
         } else {
             echo "MOVE FAILED!";
         }
 
-        if(rename(FilePacker::schemasPath, "..../schemas")) {
+        if(rename(realpath(dirname(__FILE__)) . FilePacker::schemasPath, "..\..\schemas")) {
             echo "MOVE SUCCESS!";
         } else {
             echo "MOVE FAILED!";
@@ -82,3 +55,5 @@ class FilePacker
         
     }
 }
+
+FilePacker::move();
