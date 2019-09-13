@@ -10,14 +10,21 @@
     ],
     "type": "library",
     "require": {
-        "php": ">=7.1",
-        "composer/installers": "~1.0"
+        "php": ">=7.1"
     },
     "extra": {
-        "installer-name": "schemas"
+        "laravel": {
+            "providers": [
+                "mysteryreloaded\\laraonetheme\\ThemeServiceProvider"
+            ],
+            "aliases": {
+                "ThemeFiles": "mysteryreloaded\\laraonetheme\\Facades\\ThemeFiles"
+            }
+        }
     },
     "require-dev": {
-		"phpunit/phpunit": "6.*"
+		"phpunit/phpunit": "6.*",
+        "orchestra/testbench": "~3.0"
     },
     "autoload": {
         "psr-4": {
