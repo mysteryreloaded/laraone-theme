@@ -15,11 +15,6 @@ class FilePacker
 
     }
 
-    public static function world()
-    {
-        return 'Hello World, Composer!';
-    }
-
     public static function move()
     {
         // if(rename(realpath(dirname(__FILE__)) . FilePacker::themeCreatePath, realpath(dirname(__FILE__)) . "\ThemeCreateCommand.php")) {
@@ -36,4 +31,4 @@ class FilePacker
     }
 }
 
-// FilePacker::move();
+FilePacker::move();
