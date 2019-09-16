@@ -11,9 +11,12 @@ class ThemeServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        // $this->commands([
-        //     MoveFiles::class
-        // ]);
+        $this->commands([
+            ThemeCreateCommand::class,
+            ThemePackageCommand::class,
+            ThemeSyncCommand::class,
+            ThemeValidateCommand::class
+        ]);
     }
 
     public function register()
