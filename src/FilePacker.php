@@ -30,5 +30,3 @@ class FilePacker
         
     }
 }
-
-FilePacker::move();

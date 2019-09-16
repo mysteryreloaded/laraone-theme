@@ -8,10 +8,10 @@ class ThemeServiceProvider extends ServiceProvider {
 
     // protected $commands = ['mysteryreloaded\laraonetheme\Commands\MoveFiles'];
 
-    public function boot() {
-        // $this->commands([
-        //     MoveFiles::class
-        // ]);
+    public function boot(\Illuminate\Routing\Router $router) {
+        $this->commands([
+            \mysteryreloaded\laraonetheme\Commands\MoveFiles::class,
+        ]);
     }
 
     public function register() {
