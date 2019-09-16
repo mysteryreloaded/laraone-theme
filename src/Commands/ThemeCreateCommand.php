@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Commands;
+namespace mysteryreloaded\laraonetheme\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use LaravelZero\Framework\Commands\Command;
+use Illuminate\Console\Command;
+// use LaravelZero\Framework\Commands\Command;
 use Validator;
 
 class ThemeCreateCommand extends Command
