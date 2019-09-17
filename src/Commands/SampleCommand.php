@@ -80,6 +80,6 @@ class SampleCommand extends GeneratorCommand
     //  */
 
     public function handle() {
-        $this->info('Sample command has been run!');
+        $this->info('Eureka! Sample command has been run!');
     }
 }
