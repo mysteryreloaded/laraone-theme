@@ -1,5 +1,5 @@
 <?php
-namespace Niellles\LumenCommands {
+namespace mysteryreloaded\laraonetheme {
     /**
      * Get the path to the application folder.
      *
