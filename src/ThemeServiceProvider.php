@@ -19,18 +19,14 @@ class ThemeServiceProvider extends ServiceProvider
         //     ThemeValidateCommand::class
         // ]);
 
-        if($this->app->runningInConsole()) {
             $this->commands([
                 SampleCommand::class
             ]);
-        }
     }
 
     public function register()
     {
-        $this->app->bind('theme-files', function () {
-            FilePacker::move();
-        });
+
         // $this->commands($this->commands);
     }
 }
