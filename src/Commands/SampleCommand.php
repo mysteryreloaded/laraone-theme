@@ -6,13 +6,6 @@ use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class SampleCommand extends Command {
-
-    public function handle() {
-        $this->info('Sample command has been run!');
-    }
-}
-
 
 class SampleCommand extends GeneratorCommand
 {
@@ -56,10 +49,6 @@ class SampleCommand extends GeneratorCommand
      *
      * @return string
      */
-    protected function getStub()
-    {
-        return __DIR__.'/stubs/console.stub';
-    }
 
     /**
      * Get the default namespace for the class.
@@ -94,5 +83,9 @@ class SampleCommand extends GeneratorCommand
         return [
             ['command', null, InputOption::VALUE_OPTIONAL, 'The terminal command that should be assigned.', 'command:name'],
         ];
+    }
+
+    public function handle() {
+        $this->info('Sample command has been run!');
     }
 }

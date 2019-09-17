@@ -5,7 +5,7 @@ use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputArgument;
 require_once('helpers.php');
-abstract class GeneratorCommand extends Command
+class GeneratorCommand extends Command
 {
     /**
      * The filesystem instance.
@@ -36,7 +36,6 @@ abstract class GeneratorCommand extends Command
      *
      * @return string
      */
-    abstract protected function getStub();
     /**
      * Execute the console command.
      *
@@ -121,11 +120,7 @@ abstract class GeneratorCommand extends Command
      * @param  string  $name
      * @return string
      */
-    protected function buildClass($name)
-    {
-        $stub = $this->files->get($this->getStub());
-        return $this->replaceNamespace($stub, $name)->replaceClass($stub, $name);
-    }
+
     /**
      * Replace the namespace for the given stub.
      *
@@ -133,16 +128,7 @@ abstract class GeneratorCommand extends Command
      * @param  string  $name
      * @return $this
      */
-    protected function replaceNamespace(&$stub, $name)
-    {
-        $stub = str_replace(
-            'DummyNamespace', $this->getNamespace($name), $stub
-        );
-        $stub = str_replace(
-            'DummyRootNamespace', $this->getLumenNamespace(), $stub
-        );
-        return $this;
-    }
+
     /**
      * Get the full namespace name for a given class.
      *
@@ -168,18 +154,7 @@ abstract class GeneratorCommand extends Command
         }
         throw new RuntimeException('Unable to detect application namespace.');
     }
-    /**
-     * Replace the class name for the given stub.
-     *
-     * @param  string  $stub
-     * @param  string  $name
-     * @return string
-     */
-    protected function replaceClass($stub, $name)
-    {
-        $class = str_replace($this->getNamespace($name).'\\', '', $name);
-        return str_replace('DummyClass', $class, $stub);
-    }
+
     /**
      * Get the desired class name from the input.
      *
