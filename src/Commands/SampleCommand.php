@@ -61,29 +61,23 @@ class SampleCommand extends GeneratorCommand
         return $rootNamespace.'\Console\Commands';
     }
 
-    /**
-     * Get the console command arguments.
-     *
-     * @return array
-     */
-    protected function getArguments()
-    {
-        return [
-            ['name', InputArgument::REQUIRED, 'The name of the command.'],
-        ];
-    }
+    // /**
+    //  * Get the console command arguments.
+    //  *
+    //  * @return array
+    //  */
+    // protected function getArguments()
+    // {
+    //     return [
+    //         ['name', InputArgument::REQUIRED, 'The name of the command.'],
+    //     ];
+    // }
 
-    /**
-     * Get the console command options.
-     *
-     * @return array
-     */
-    protected function getOptions()
-    {
-        return [
-            ['command', null, InputOption::VALUE_OPTIONAL, 'The terminal command that should be assigned.', 'command:name'],
-        ];
-    }
+    // /**
+    //  * Get the console command options.
+    //  *
+    //  * @return array
+    //  */
 
     public function handle() {
         $this->info('Sample command has been run!');

@@ -160,19 +160,19 @@ class GeneratorCommand extends Command
      *
      * @return string
      */
-    protected function getNameInput()
-    {
-        return $this->argument('name');
-    }
-    /**
-     * Get the console command arguments.
-     *
-     * @return array
-     */
-    protected function getArguments()
-    {
-        return [
-            ['name', InputArgument::REQUIRED, 'The name of the class'],
-        ];
-    }
+    // protected function getNameInput()
+    // {
+    //     return $this->argument('name');
+    // }
+    // /**
+    //  * Get the console command arguments.
+    //  *
+    //  * @return array
+    //  */
+    // protected function getArguments()
+    // {
+    //     return [
+    //         ['name', InputArgument::REQUIRED, 'The name of the class'],
+    //     ];
+    // }
 }

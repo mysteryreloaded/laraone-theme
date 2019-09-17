@@ -24,6 +24,37 @@ class ThemeCreateCommand extends Command
     protected $description = 'Command description';
 
     /**
+     * The type of class being generated.
+     *
+     * @var string
+     */
+    protected $type = 'Sample command';
+
+    protected function replaceClass($stub, $name)
+    {
+        $stub = parent::replaceClass($stub, $name);
+
+        return str_replace('dummy:command', $this->option('command'), $stub);
+    }
+
+    /**
+     * Get the stub file for the generator.
+     *
+     * @return string
+     */
+
+    /**
+     * Get the default namespace for the class.
+     *
+     * @param  string  $rootNamespace
+     * @return string
+     */
+    protected function getDefaultNamespace($rootNamespace)
+    {
+        return $rootNamespace.'\Console\Commands';
+    }
+
+    /**
      * Execute the console command.
      *
      * @return mixed
