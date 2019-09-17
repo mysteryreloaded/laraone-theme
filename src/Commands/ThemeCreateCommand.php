@@ -3,11 +3,13 @@
 namespace mysteryreloaded\laraonetheme\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Console\Command;
+use mysteryreloaded\laraonetheme\GeneratorCommand;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 // use LaravelZero\Framework\Commands\Command;
 use Validator;
 
-class ThemeCreateCommand extends Command
+class ThemeCreateCommand extends GeneratorCommand
 {
     /**
      * The signature of the command.

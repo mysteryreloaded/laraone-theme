@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Commands;
+namespace mysteryreloaded\laraonetheme\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use LaravelZero\Framework\Commands\Command;
+use mysteryreloaded\laraonetheme\GeneratorCommand;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 
-class ThemeSyncCommand extends Command
+class ThemeSyncCommand extends GeneratorCommand
 {
     /**
      * This command is used when developing, to push the compiled theme zip file to phoenix backend

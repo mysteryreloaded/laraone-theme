@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Commands;
+namespace mysteryreloaded\laraonetheme\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use LaravelZero\Framework\Commands\Command;
+use mysteryreloaded\laraonetheme\GeneratorCommand;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 use ZipArchive;
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
 use JsonSchema\Validator as JsonValidator;
 use Illuminate\Support\Facades\File as File;
 
-class ThemePackageCommand extends Command
+class ThemePackageCommand extends GeneratorCommand
 {
     /**
      * The signature of the command.

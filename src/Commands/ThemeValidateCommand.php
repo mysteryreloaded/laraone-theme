@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Commands;
+namespace mysteryreloaded\laraonetheme\Commands;
 
 use Illuminate\Console\Scheduling\Schedule;
-use LaravelZero\Framework\Commands\Command;
+use mysteryreloaded\laraonetheme\GeneratorCommand;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 use JsonSchema\Validator as JsonValidator;
 
-class ThemeValidateCommand extends Command
+class ThemeValidateCommand extends GeneratorCommand
 {
     /**
      * The signature of the command.

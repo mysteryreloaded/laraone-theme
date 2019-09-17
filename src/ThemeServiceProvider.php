@@ -27,7 +27,11 @@ class ThemeServiceProvider extends ServiceProvider
 
         // $this->commands($this->commands);
         $this->commands([
-            SampleCommand::class
+            Commands\SampleCommand::class,
+            Commands\ThemeCreateCommand::class,
+            Commands\ThemePackageCommand::class,
+            Commands\ThemeSyncCommand::class,
+            Commands\ThemeValidateCommand::class
         ]);
     }
 }
