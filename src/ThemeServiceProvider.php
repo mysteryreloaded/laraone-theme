@@ -19,14 +19,15 @@ class ThemeServiceProvider extends ServiceProvider
         //     ThemeValidateCommand::class
         // ]);
 
-            $this->commands([
-                SampleCommand::class
-            ]);
+           
     }
 
     public function register()
     {
 
         // $this->commands($this->commands);
+        $this->commands([
+            SampleCommand::class
+        ]);
     }
 }
