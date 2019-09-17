@@ -2,7 +2,7 @@
 
 
 namespace mysteryreloaded\laraonetheme\Commands;
-use Illuminate\Console\GeneratorCommand;
+use mysteryreloaded\laraonetheme\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
