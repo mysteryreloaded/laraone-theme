@@ -2,14 +2,12 @@
 
 namespace mysteryreloaded\laraonetheme\Commands;
 
+use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;
-use mysteryreloaded\laraonetheme\GeneratorCommand;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 // use LaravelZero\Framework\Commands\Command;
 use Validator;
 
-class ThemeCreateCommand extends GeneratorCommand
+class ThemeCreateCommand extends Command
 {
     /**
      * The signature of the command.
@@ -30,41 +28,12 @@ class ThemeCreateCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $type = 'Sample command';
+    protected $type = 'Theme create command';
 
-    protected function replaceClass($stub, $name)
-    {
-        $stub = parent::replaceClass($stub, $name);
-
-        return str_replace('dummy:command', $this->option('command'), $stub);
-    }
-
-    /**
-     * Get the stub file for the generator.
-     *
-     * @return string
-     */
-
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
-    {
-        return $rootNamespace.'\Console\Commands';
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
         // $name = $this->ask('Theme name');
-        $name = $this->validateAnswer(function() {
+        $name = $this->validateAnswer(function () {
             return $this->ask('Enter theme namespace, in reverse DNS notation format e.g. (com.your-organization.themeName)');
         }, ['required', 'regex:/^[A-Za-z]{2,6}((?!-)\.[A-Za-z0-9-]{1,63}(?<!-))+$/'], 'Please try again using correct format!');
 
@@ -82,7 +51,7 @@ class ThemeCreateCommand extends GeneratorCommand
         $validate = $this->validateInput($rules, $value);
 
         if ($validate !== true) {
-            if($message) {
+            if ($message) {
                 $this->warn($message);
             } else {
                 $this->warn($validate);
@@ -94,12 +63,12 @@ class ThemeCreateCommand extends GeneratorCommand
 
     private function validateInput($rules, $value)
     {
-        $validator = Validator::make([$rules[0] => $value], [ $rules[0] => $rules[1] ]);
+        $validator = Validator::make([$rules[0] => $value], [$rules[0] => $rules[1]]);
 
         if ($validator->fails()) {
             $error = $validator->errors();
             return $error->first($rules[0]);
-        }else{
+        } else {
             return true;
         }
 

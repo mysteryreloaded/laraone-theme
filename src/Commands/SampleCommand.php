@@ -1,13 +1,10 @@
-<?php 
-
+<?php
 
 namespace mysteryreloaded\laraonetheme\Commands;
-use mysteryreloaded\laraonetheme\GeneratorCommand;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 
+use Illuminate\Console\Command;
 
-class SampleCommand extends GeneratorCommand
+class SampleCommand extends Command
 {
     /**
      * The console command name.
@@ -30,56 +27,8 @@ class SampleCommand extends GeneratorCommand
      */
     protected $type = 'Sample command';
 
-    /**
-     * Replace the class name for the given stub.
-     *
-     * @param  string  $stub
-     * @param  string  $name
-     * @return string
-     */
-    protected function replaceClass($stub, $name)
+    public function handle()
     {
-        $stub = parent::replaceClass($stub, $name);
-
-        return str_replace('dummy:command', $this->option('command'), $stub);
-    }
-
-    /**
-     * Get the stub file for the generator.
-     *
-     * @return string
-     */
-
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
-    {
-        return $rootNamespace.'\Console\Commands';
-    }
-
-    // /**
-    //  * Get the console command arguments.
-    //  *
-    //  * @return array
-    //  */
-    // protected function getArguments()
-    // {
-    //     return [
-    //         ['name', InputArgument::REQUIRED, 'The name of the command.'],
-    //     ];
-    // }
-
-    // /**
-    //  * Get the console command options.
-    //  *
-    //  * @return array
-    //  */
-
-    public function handle() {
         $this->info('Eureka! Sample command has been run!');
     }
 }

@@ -2,12 +2,10 @@
 
 namespace mysteryreloaded\laraonetheme\Commands;
 
+use Illuminate\Console\Command;
 use Illuminate\Console\Scheduling\Schedule;
-use mysteryreloaded\laraonetheme\GeneratorCommand;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 
-class ThemeSyncCommand extends GeneratorCommand
+class ThemeSyncCommand extends Command
 {
     /**
      * This command is used when developing, to push the compiled theme zip file to phoenix backend
@@ -29,37 +27,8 @@ class ThemeSyncCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $type = 'Sample command';
+    protected $type = 'Theme sync command';
 
-    protected function replaceClass($stub, $name)
-    {
-        $stub = parent::replaceClass($stub, $name);
-
-        return str_replace('dummy:command', $this->option('command'), $stub);
-    }
-
-    /**
-     * Get the stub file for the generator.
-     *
-     * @return string
-     */
-
-    /**
-     * Get the default namespace for the class.
-     *
-     * @param  string  $rootNamespace
-     * @return string
-     */
-    protected function getDefaultNamespace($rootNamespace)
-    {
-        return $rootNamespace.'\Console\Commands';
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
         $foldersOption = $this->option('folders');
@@ -104,13 +73,18 @@ class ThemeSyncCommand extends GeneratorCommand
             @mkdir($to);
             $d = dir($from);
             while (false !== ($entry = $d->read())) {
-                if ($entry == "." || $entry == "..") continue;
+                if ($entry == "." || $entry == "..") {
+                    continue;
+                }
+
                 $this->copyDirectory("$from/$entry", "$to/$entry", $rewrite);
             }
             $d->close();
         } else {
-            if (!file_exists($to) || $rewrite)
-            copy($from, $to);
+            if (!file_exists($to) || $rewrite) {
+                copy($from, $to);
+            }
+
         }
     }
 }
