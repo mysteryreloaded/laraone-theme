@@ -39,7 +39,7 @@ class ThemePackageCommand extends Command
             $theme = base_path() . DIRECTORY_SEPARATOR . 'theme';
             $themeData = json_decode(file_get_contents($theme . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'theme.json'));
             $validator = new JsonValidator;
-            $validator->validate($themeData, (object) ['$ref' => 'file://' . realpath('schemas' . DIRECTORY_SEPARATOR . 'theme.json')]);
+            $validator->validate($themeData, (object) ['$ref' => 'file://' . realpath('vendor\mysteryreloaded\laraone-theme\src' . DIRECTORY_SEPARATOR . 'theme.json')]);
 
             if ($validator->isValid()) {
                 $this->info('The supplied JSON validates against the schema.');
